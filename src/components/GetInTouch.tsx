@@ -46,6 +46,8 @@ const ContactInfo = ({
     }}
   >
     <Box
+      component={href ? 'a' : 'div'}
+      href={href}
       sx={{
         bgcolor: 'primary.main',
         color: 'white',
@@ -57,6 +59,14 @@ const ContactInfo = ({
         justifyContent: 'center',
         flexShrink: 0,
         boxShadow: '0 4px 14px rgba(0, 57, 203, 0.2)',
+        cursor: href ? 'pointer' : 'default',
+        textDecoration: 'none',
+        transition: 'transform 0.2s ease',
+        '&:hover': href
+          ? {
+              transform: 'scale(1.1)',
+            }
+          : {},
       }}
     >
       {icon}
@@ -188,8 +198,8 @@ export default function GetInTouch() {
               <ContactInfo
                 icon={<EmailIcon />}
                 title="Email"
-                content="info@mwlconsulting.com"
-                href="mailto:info@mwlconsulting.com"
+                content="contact.mwlconsulting@gmail.com"
+                href="mailto:contact.mwlconsulting@gmail.com"
               />
               <ContactInfo
                 icon={<LocationOnIcon />}

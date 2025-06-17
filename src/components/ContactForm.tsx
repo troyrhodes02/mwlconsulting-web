@@ -1,34 +1,71 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import {
   Box,
   TextField,
-  Button,
   Typography,
   Stack,
   useTheme,
   useMediaQuery,
   InputAdornment,
+  Snackbar,
+  Alert,
 } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import {
   SendRounded,
   Person,
   Email,
   Subject,
-  Message,
 } from '@mui/icons-material';
 import { alphaPrimary } from '@/theme';
+
+interface FormData {
+  from_name: string;
+  from_email: string;
+  subject: string;
+  message: string;
+}
+
+interface SnackState {
+  open: boolean;
+  msg: string;
+  sev: 'success' | 'error';
+}
 
 export default function ContactForm() {
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+  const formRef = useRef<HTMLFormElement>(null);
+  const [canSend, setCanSend] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [snack, setSnack] = useState<SnackState>({
+    open: false,
+    msg: '',
+    sev: 'success',
+  });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+  }, []);
+
+  const [formData, setFormData] = useState<FormData>({
+    from_name: '',
+    from_email: '',
     subject: '',
     message: '',
   });
+
+  useEffect(() => {
+    if (!formRef.current) return;
+    const form = formRef.current;
+    const handler = () => setCanSend(form.checkValidity());
+    form.addEventListener('input', handler);
+    return () => form.removeEventListener('input', handler);
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -39,23 +76,47 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setLoading(true);
 
-    // TODO: Add toast notification here when toast system is available
-    // toast({
-    //   title: "Message Sent!",
-    //   description: "We'll get back to you as soon as possible."
-    // });
+    try {
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData as unknown as Record<string, unknown>
+      );
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
+      if (result.status === 200) {
+        setSnack({
+          open: true,
+          msg: 'Your message was sent!',
+          sev: 'success',
+        });
+
+        // Reset form
+        setFormData({
+          from_name: '',
+          from_email: '',
+          subject: '',
+          message: '',
+        });
+        setCanSend(false);
+      }
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSnack({
+        open: true,
+        msg: 'Unable to send — please try again.',
+        sev: 'error',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCloseSnack = () => {
+    setSnack({ ...snack, open: false });
   };
 
   const inputStyles = {
@@ -106,6 +167,7 @@ export default function ContactForm() {
 
         <Stack
           component="form"
+          ref={formRef}
           onSubmit={handleSubmit}
           spacing={3}
           sx={{
@@ -115,10 +177,10 @@ export default function ContactForm() {
           }}
         >
           <TextField
-            id="name"
-            name="name"
+            id="from_name"
+            name="from_name"
             placeholder="Your full name"
-            value={formData.name}
+            value={formData.from_name}
             onChange={handleInputChange}
             required
             fullWidth
@@ -133,11 +195,11 @@ export default function ContactForm() {
           />
 
           <TextField
-            id="email"
-            name="email"
+            id="from_email"
+            name="from_email"
             type="email"
             placeholder="Your email address"
-            value={formData.email}
+            value={formData.from_email}
             onChange={handleInputChange}
             required
             fullWidth
@@ -169,40 +231,45 @@ export default function ContactForm() {
             sx={inputStyles}
           />
 
-          <TextField
-            id="message"
-            name="message"
-            placeholder="Tell us more about your needs&hellip;"
-            value={formData.message}
-            onChange={handleInputChange}
-            multiline
-            rows={8}
-            fullWidth
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Message sx={{ color: 'text.secondary', mt: 1.5 }} />
-                </InputAdornment>
-              ),
-            }}
-            sx={{
-              ...inputStyles,
-              flex: 1,
-              '& .MuiInputBase-root': {
-                height: '100%',
-                alignItems: 'flex-start',
-              },
-              '& .MuiInputBase-input': {
-                height: '100% !important',
-                overflow: 'auto !important',
-              },
-            }}
-          />
+          <Box>
+            <Typography
+              variant="body2"
+              color="text.primary"
+              sx={{ mb: 1, fontWeight: 500 }}
+            >
+              Message
+            </Typography>
+            <TextField
+              id="message"
+              name="message"
+              placeholder="Tell us more about your needs&hellip;"
+              value={formData.message}
+              onChange={handleInputChange}
+              multiline
+              rows={8}
+              required
+              fullWidth
+              sx={{
+                ...inputStyles,
+                flex: 1,
+                '& .MuiInputBase-root': {
+                  height: '100%',
+                  alignItems: 'flex-start',
+                },
+                '& .MuiInputBase-input': {
+                  height: '100% !important',
+                  overflow: 'auto !important',
+                },
+              }}
+            />
+          </Box>
 
-          <Button
+          <LoadingButton
             type="submit"
             variant="contained"
             size="large"
+            loading={loading}
+            disabled={!canSend || loading}
             startIcon={<SendRounded />}
             sx={{
               py: 1.5,
@@ -218,9 +285,38 @@ export default function ContactForm() {
             }}
           >
             Send Message
-          </Button>
+          </LoadingButton>
+
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{
+              mt: 2,
+              fontStyle: 'italic',
+              opacity: 0.8,
+            }}
+          >
+            Thank you for considering MWL Consulting. We look forward to hearing
+            from you!
+          </Typography>
         </Stack>
       </Box>
+
+      <Snackbar
+        open={snack.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnack}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          onClose={handleCloseSnack}
+          severity={snack.sev}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {snack.msg}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
