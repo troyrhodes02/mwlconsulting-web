@@ -138,14 +138,15 @@ export default function ContactForm() {
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Box
         sx={{
-          px: { xs: 2, sm: 3, md: 0 },
+          px: { xs: 3, sm: 3, md: 0 },
           pt: { xs: 3, sm: 4, md: 0 },
           pb: { xs: 6, md: 0 },
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          maxWidth: { xs: '100%', sm: '600px' },
-          mx: { xs: 'auto', md: 0 },
+          width: '100%',
+          maxWidth: '100%',
+          mx: 'auto',
         }}
       >
         <Typography
