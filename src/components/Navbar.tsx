@@ -137,7 +137,11 @@ const Navbar = () => {
         zIndex: theme.zIndex.appBar,
       }}
     >
-      <Container maxWidth="xl" disableGutters sx={{ px: { xs: 1.5, sm: 2, md: 3 } }}>
+      <Container
+        maxWidth="xl"
+        disableGutters
+        sx={{ px: { xs: 1.5, sm: 2, md: 3 } }}
+      >
         <Toolbar
           sx={{
             justifyContent: 'space-between',

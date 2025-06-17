@@ -22,4 +22,4 @@ export default function LoadingIndicator() {
       <CircularProgress size={48} color="primary" />
     </Box>
   );
-} 
+}

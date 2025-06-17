@@ -75,8 +75,8 @@ const ContactInfo = ({
       <Typography
         variant="subtitle2"
         color="text.secondary"
-        sx={{ 
-          mb: 0.5, 
+        sx={{
+          mb: 0.5,
           fontSize: { xs: '0.75rem', sm: '0.875rem' },
           overflow: 'hidden',
           textOverflow: 'ellipsis',

@@ -62,11 +62,11 @@ export default function ContactForm() {
       [e.target.name]: e.target.value,
     };
     setFormData(newFormData);
-    
+
     // Update canSend based on all fields having values
     setCanSend(
-      Object.values(newFormData).every(value => value.trim() !== '') &&
-      newFormData.from_email.includes('@') // Basic email validation
+      Object.values(newFormData).every((value) => value.trim() !== '') &&
+        newFormData.from_email.includes('@') // Basic email validation
     );
   };
 
