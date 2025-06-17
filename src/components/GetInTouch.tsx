@@ -32,11 +32,11 @@ const ContactInfo = ({
 }) => (
   <Stack
     direction="row"
-    spacing={2}
+    spacing={{ xs: 1.5, sm: 2 }}
     alignItems="center"
     sx={{
       width: '100%',
-      p: 2,
+      p: { xs: 1.5, sm: 2 },
       borderRadius: 2,
       transition: 'all 0.3s ease',
       '&:hover': {
@@ -51,8 +51,8 @@ const ContactInfo = ({
       sx={{
         bgcolor: 'primary.main',
         color: 'white',
-        width: 44,
-        height: 44,
+        width: { xs: 38, sm: 44 },
+        height: { xs: 38, sm: 44 },
         borderRadius: 2,
         display: 'flex',
         alignItems: 'center',
@@ -75,9 +75,9 @@ const ContactInfo = ({
       <Typography
         variant="subtitle2"
         color="text.secondary"
-        sx={{
-          mb: 0.5,
-          fontSize: '0.875rem',
+        sx={{ 
+          mb: 0.5, 
+          fontSize: { xs: '0.75rem', sm: '0.875rem' },
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         }}
@@ -94,6 +94,8 @@ const ContactInfo = ({
           textDecoration: 'none',
           wordBreak: 'break-word',
           display: 'block',
+          fontSize: { xs: '0.875rem', sm: '1rem' },
+          lineHeight: { xs: 1.4, sm: 1.5 },
           '&:hover': href
             ? {
                 color: 'primary.main',

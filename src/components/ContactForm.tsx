@@ -54,21 +54,20 @@ export default function ContactForm() {
     message: '',
   });
 
-  useEffect(() => {
-    if (!formRef.current) return;
-    const form = formRef.current;
-    const handler = () => setCanSend(form.checkValidity());
-    form.addEventListener('input', handler);
-    return () => form.removeEventListener('input', handler);
-  }, []);
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
+    const newFormData = {
       ...formData,
       [e.target.name]: e.target.value,
-    });
+    };
+    setFormData(newFormData);
+    
+    // Update canSend based on all fields having values
+    setCanSend(
+      Object.values(newFormData).every(value => value.trim() !== '') &&
+      newFormData.from_email.includes('@') // Basic email validation
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
