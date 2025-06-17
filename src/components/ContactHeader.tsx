@@ -10,28 +10,28 @@ export default function ContactHeader() {
       sx={{
         background: theme.palette.primary.main,
         color: 'white',
-        py: { xs: 8, md: 12 },
+        py: { xs: 4, md: 6 },
         textAlign: 'center',
       }}
     >
       <Container maxWidth="lg">
         <Typography
-          variant="h1"
+          variant="h2"
           component="h1"
           sx={{
-            fontSize: { xs: '2.5rem', md: '3.5rem' },
+            fontSize: { xs: '2rem', md: '2.5rem' },
             fontWeight: 700,
-            mb: 2,
+            mb: 1,
           }}
         >
           Contact Us
         </Typography>
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{
             fontWeight: 400,
             opacity: 0.9,
-            fontSize: { xs: '1.25rem', md: '1.5rem' },
+            fontSize: { xs: '1rem', md: '1.125rem' },
           }}
         >
           Let’s tackle your next challenge together
