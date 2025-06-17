@@ -34,7 +34,7 @@ export default function ContactHeader() {
             fontSize: { xs: '1.25rem', md: '1.5rem' },
           }}
         >
-          Get in touch with our team
+          Let’s tackle your next challenge together
         </Typography>
       </Container>
     </Box>
