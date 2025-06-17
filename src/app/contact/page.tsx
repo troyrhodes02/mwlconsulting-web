@@ -6,13 +6,22 @@ import GetInTouch from '@/components/GetInTouch';
 
 export default function Contact() {
   return (
-    <Box sx={{ bgcolor: '#f9fafb' }}>
+    <Box
+      sx={{
+        bgcolor: '#f9fafb',
+        overflowX: 'hidden',
+        width: '100%',
+      }}
+    >
       <ContactHeader />
       <Container
         maxWidth="lg"
         disableGutters
         sx={{
-          px: { xs: 3, md: 4, lg: 0 },
+          px: { xs: 2, sm: 3, md: 4, lg: 0 },
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
         }}
       >
         <GetInTouch />

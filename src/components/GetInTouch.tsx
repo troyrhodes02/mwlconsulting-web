@@ -71,11 +71,16 @@ const ContactInfo = ({
     >
       {icon}
     </Box>
-    <Box>
+    <Box sx={{ minWidth: 0, flex: 1 }}>
       <Typography
         variant="subtitle2"
         color="text.secondary"
-        sx={{ mb: 0.5, fontSize: '0.875rem' }}
+        sx={{
+          mb: 0.5,
+          fontSize: '0.875rem',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}
       >
         {title}
       </Typography>
@@ -87,6 +92,8 @@ const ContactInfo = ({
           color: 'text.primary',
           fontWeight: 500,
           textDecoration: 'none',
+          wordBreak: 'break-word',
+          display: 'block',
           '&:hover': href
             ? {
                 color: 'primary.main',
@@ -161,11 +168,20 @@ export default function GetInTouch() {
             gridTemplateColumns: { xs: '1fr', lg: '5fr 7fr' },
             gap: { xs: 6, md: 8 },
             minHeight: { lg: '800px' },
+            width: '100%',
+            alignItems: 'start',
+            justifyItems: { xs: 'center', lg: 'stretch' },
           }}
         >
           {/* Left Column - Contact Info */}
           <Box
-            sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              width: { xs: '100%', lg: 'auto' },
+              maxWidth: { xs: '500px', lg: 'none' },
+            }}
           >
             <Typography
               variant="h1"
@@ -251,7 +267,13 @@ export default function GetInTouch() {
           </Box>
 
           {/* Right Column - Contact Form */}
-          <Box sx={{ height: '100%' }}>
+          <Box
+            sx={{
+              height: '100%',
+              width: { xs: '100%', lg: 'auto' },
+              maxWidth: { xs: '500px', lg: 'none' },
+            }}
+          >
             <Paper
               elevation={isTablet ? 0 : 2}
               sx={{
@@ -259,6 +281,8 @@ export default function GetInTouch() {
                 overflow: 'hidden',
                 bgcolor: 'background.paper',
                 height: '100%',
+                width: '100%',
+                mx: 'auto',
               }}
             >
               <Box
