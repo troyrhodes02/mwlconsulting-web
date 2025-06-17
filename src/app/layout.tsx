@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import ThemeRegistry from '@/components/ThemeRegistry';
 import { MainLayout } from '@/layout/MainLayout';
+import localFont from 'next/font/local';
 
 const inter = localFont({
   src: [
@@ -16,11 +16,6 @@ const inter = localFont({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: 'MWL Consulting',
-  description: 'MWL Consulting Web Application',
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -29,7 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <MainLayout>{children}</MainLayout>
+        <ThemeRegistry>
+          <MainLayout>
+            {children}
+          </MainLayout>
+        </ThemeRegistry>
       </body>
     </html>
   );

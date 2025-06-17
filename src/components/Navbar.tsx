@@ -89,13 +89,13 @@ const Navbar = () => {
       PaperProps={{
         sx: {
           width: '100%',
-          maxWidth: 300,
+          maxWidth: { xs: 260, sm: 300 },
           backgroundColor: theme.palette.primary.main,
           color: 'white',
         },
       }}
     >
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: { xs: 1.5, sm: 2 } }}>
         <IconButton
           color="inherit"
           onClick={() => setIsMenuOpen(false)}
@@ -137,7 +137,11 @@ const Navbar = () => {
         zIndex: theme.zIndex.appBar,
       }}
     >
-      <Container maxWidth="xl" disableGutters sx={{ px: { xs: 2, sm: 3 } }}>
+      <Container
+        maxWidth="xl"
+        disableGutters
+        sx={{ px: { xs: 1.5, sm: 2, md: 3 } }}
+      >
         <Toolbar
           sx={{
             justifyContent: 'space-between',
@@ -151,7 +155,7 @@ const Navbar = () => {
             sx={{
               fontWeight: 'bold',
               flexShrink: 0,
-              fontSize: { xs: '1.125rem', sm: '1.25rem' },
+              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
             }}
           >
             MWL Consulting, LLC.
