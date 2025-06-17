@@ -14,12 +14,7 @@ import {
   Alert,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import {
-  SendRounded,
-  Person,
-  Email,
-  Subject,
-} from '@mui/icons-material';
+import { SendRounded, Person, Email, Subject } from '@mui/icons-material';
 import { alphaPrimary } from '@/theme';
 
 interface FormData {
@@ -143,12 +138,14 @@ export default function ContactForm() {
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Box
         sx={{
-          px: { xs: 3, md: 0 },
-          pt: { xs: 4, md: 0 },
+          px: { xs: 2, sm: 3, md: 0 },
+          pt: { xs: 3, sm: 4, md: 0 },
           pb: { xs: 6, md: 0 },
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          maxWidth: { xs: '100%', sm: '600px' },
+          mx: { xs: 'auto', md: 0 },
         }}
       >
         <Typography
@@ -157,11 +154,19 @@ export default function ContactForm() {
             fontWeight: 700,
             mb: 1,
             fontSize: { xs: '1.5rem', md: '1.75rem' },
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
           Send us a Message
         </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          sx={{
+            mb: 4,
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
           Fill out the form below and we&apos;ll get back to you shortly
         </Typography>
 
