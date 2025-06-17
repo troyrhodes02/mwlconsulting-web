@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -98,6 +100,7 @@ const Navbar = () => {
           color="inherit"
           onClick={() => setIsMenuOpen(false)}
           sx={{ mb: 2 }}
+          aria-label="Close menu"
         >
           <CloseIcon />
         </IconButton>
@@ -129,17 +132,26 @@ const Navbar = () => {
     <AppBar
       position="sticky"
       sx={{
-        background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+        background: theme.palette.primary.main,
+        top: 0,
+        zIndex: theme.zIndex.appBar,
       }}
     >
-      <Container maxWidth="xl">
-        <Toolbar sx={{ justifyContent: 'space-between', position: 'relative' }}>
+      <Container maxWidth="xl" disableGutters sx={{ px: { xs: 2, sm: 3 } }}>
+        <Toolbar
+          sx={{
+            justifyContent: 'space-between',
+            minHeight: { xs: 56, sm: 64 },
+            px: 0,
+          }}
+        >
           <Typography
             variant="h6"
             component="h1"
             sx={{
               fontWeight: 'bold',
               flexShrink: 0,
+              fontSize: { xs: '1.125rem', sm: '1.25rem' },
             }}
           >
             MWL Consulting, LLC.
@@ -158,7 +170,7 @@ const Navbar = () => {
             </Box>
           )}
 
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {!isMobile && (
               <Box
                 sx={{
@@ -196,6 +208,7 @@ const Navbar = () => {
                       onClick={handleSearchClose}
                       size="small"
                       sx={{ p: 1 }}
+                      aria-label="Close search"
                     >
                       <CloseIcon fontSize="small" />
                     </IconButton>
@@ -204,9 +217,11 @@ const Navbar = () => {
                   <IconButton
                     color="inherit"
                     onClick={handleSearchOpen}
+                    size="small"
                     sx={{ p: 1 }}
+                    aria-label="Open search"
                   >
-                    <SearchIcon />
+                    <SearchIcon fontSize="small" />
                   </IconButton>
                 )}
               </Box>
@@ -214,11 +229,17 @@ const Navbar = () => {
 
             {isMobile && (
               <IconButton
+                edge="end"
                 color="inherit"
                 onClick={() => setIsMenuOpen(true)}
-                edge="end"
+                sx={{
+                  ml: 'auto',
+                  alignSelf: 'center',
+                  p: { xs: 1, sm: 1.5 },
+                }}
+                aria-label="Open menu"
               >
-                <MenuIcon />
+                <MenuIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
               </IconButton>
             )}
           </Box>
