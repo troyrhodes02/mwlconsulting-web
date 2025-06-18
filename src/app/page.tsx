@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import {
   Typography,
   Button,
@@ -10,203 +11,261 @@ import {
   Card,
   CardContent,
   Stack,
+  AppBar,
+  Toolbar,
+  IconButton,
+  InputBase,
+  Grid,
 } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
-export default function Home() {
+export default function ContactPage() {
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      {/* Typography Test Section */}
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom color="primary">
-          Theme & Typography Test Page
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-          Testing Inter font family and Material-UI theme integration
-        </Typography>
-
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h1" gutterBottom>
-            Heading 1 - Inter Font
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      {/* Navigation Bar */}
+      <AppBar position="static" sx={{ background: 'linear-gradient(90deg, #2563eb 0%, #1e50da 100%)', boxShadow: 'none' }}>
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+            MWL Consulting, LLC
           </Typography>
-          <Typography variant="h2" gutterBottom>
-            Heading 2 - Inter Font
-          </Typography>
-          <Typography variant="h3" gutterBottom>
-            Heading 3 - Inter Font
-          </Typography>
-          <Typography variant="h4" gutterBottom>
-            Heading 4 - Inter Font
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Heading 5 - Inter Font
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            Heading 6 - Inter Font
-          </Typography>
-
-          <Typography variant="body1" gutterBottom>
-            Body 1: This is regular body text using the Inter font family. It
-            should be crisp and readable with proper font weight.
-          </Typography>
-
-          <Typography variant="body2" gutterBottom>
-            Body 2: This is smaller body text, also using Inter font family.
-          </Typography>
-
-          <Typography variant="caption" display="block" gutterBottom>
-            Caption text - Inter font family
-          </Typography>
-
-          <Typography variant="overline" display="block" gutterBottom>
-            Overline text - Inter font family
-          </Typography>
-        </Box>
-      </Paper>
-
-      {/* Color Palette Test Section */}
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
-        <Typography variant="h4" gutterBottom color="primary">
-          Color Palette Test
-        </Typography>
-
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-          {/* Primary Colors */}
-          <Box sx={{ flex: '1 1 300px', minWidth: 300 }}>
-            <Typography variant="h6" gutterBottom>
-              Primary Colors (#1e50da)
-            </Typography>
-            <Stack spacing={2}>
-              <Button variant="contained" color="primary" size="large">
-                Primary Button
-              </Button>
-              <Button variant="outlined" color="primary" size="large">
-                Primary Outlined
-              </Button>
-              <Button variant="text" color="primary" size="large">
-                Primary Text
-              </Button>
-              <Chip label="Primary Chip" color="primary" />
-              <Box
-                sx={{
-                  p: 2,
-                  bgcolor: 'primary.main',
-                  color: 'primary.contrastText',
-                }}
-              >
-                Primary Background Box
-              </Box>
-            </Stack>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Button color="inherit" variant="contained" sx={{ bgcolor: 'rgba(255,255,255,0.15)', fontWeight: 600 }} disableElevation>
+              Home
+            </Button>
+            <Button color="inherit" sx={{ fontWeight: 600 }}>
+              Contact
+            </Button>
+            <IconButton color="inherit">
+              <SearchIcon />
+            </IconButton>
           </Box>
+        </Toolbar>
+      </AppBar>
 
-          {/* Secondary Colors */}
-          <Box sx={{ flex: '1 1 300px', minWidth: 300 }}>
-            <Typography variant="h6" gutterBottom>
-              Secondary Colors (#facc15)
-            </Typography>
-            <Stack spacing={2}>
-              <Button variant="contained" color="secondary" size="large">
-                Secondary Button
-              </Button>
-              <Button variant="outlined" color="secondary" size="large">
-                Secondary Outlined
-              </Button>
-              <Button variant="text" color="secondary" size="large">
-                Secondary Text
-              </Button>
-              <Chip label="Secondary Chip" color="secondary" />
-              <Box
-                sx={{
-                  p: 2,
-                  bgcolor: 'secondary.main',
-                  color: 'secondary.contrastText',
-                }}
-              >
-                Secondary Background Box
+      {/* Hero Section */}
+      <Box
+        sx={{
+          background: 'linear-gradient(120deg, #2563eb 0%, #1e50da 100%)',
+          color: 'white',
+          py: { xs: 6, md: 10 },
+          px: { xs: 2, md: 0 },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={4} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <Typography variant="h2" sx={{ fontWeight: 800, mb: 1, lineHeight: 1.1 }}>
+                HELPING SMALL BUSINESS WIN <br />
+                <Box component="span" sx={{ color: '#b3d0ff' }}>FAST!!</Box>
+              </Typography>
+              <Typography variant="h5" sx={{ mt: 2, mb: 3, fontWeight: 400 }}>
+                We guide you in structuring, organizing, and executing effective business strategies to grow your reach and drive meaningful results.
+              </Typography>
+              <Paper elevation={0} sx={{ bgcolor: 'rgba(30,80,218,0.5)', p: 3, borderRadius: 2, maxWidth: 420 }}>
+                <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 500 }}>
+                  CALL TODAY, NOT TOMORROW
+                </Typography>
+                <Typography variant="h4" sx={{ color: '#facc15', fontWeight: 700, mt: 1 }}>
+                  682-250-0536
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+                <Box
+                  component="img"
+                  src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+                  alt="Skyscrapers"
+                  sx={{ width: '100%', maxWidth: 350, borderRadius: 3, boxShadow: 6 }}
+                />
+                <Chip
+                  label="Fast & Reliable"
+                  sx={{
+                    position: 'absolute',
+                    bottom: 16,
+                    right: 16,
+                    bgcolor: '#facc15',
+                    color: '#222',
+                    fontWeight: 700,
+                    fontSize: 16,
+                    px: 2,
+                    py: 1,
+                    borderRadius: 2,
+                    boxShadow: 3,
+                  }}
+                />
               </Box>
-            </Stack>
-          </Box>
-        </Box>
-      </Paper>
-
-      {/* Font Weight Test */}
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
-        <Typography variant="h4" gutterBottom color="primary">
-          Font Weight Test (Inter Variable Font)
-        </Typography>
-
-        <Stack spacing={2}>
-          <Typography sx={{ fontWeight: 300 }}>
-            Font Weight 300 - Light
-          </Typography>
-          <Typography sx={{ fontWeight: 400 }}>
-            Font Weight 400 - Regular (Default)
-          </Typography>
-          <Typography sx={{ fontWeight: 500 }}>
-            Font Weight 500 - Medium
-          </Typography>
-          <Typography sx={{ fontWeight: 600 }}>
-            Font Weight 600 - Semi Bold
-          </Typography>
-          <Typography sx={{ fontWeight: 700 }}>
-            Font Weight 700 - Bold
-          </Typography>
-          <Typography sx={{ fontWeight: 800 }}>
-            Font Weight 800 - Extra Bold
-          </Typography>
-        </Stack>
-      </Paper>
-
-      {/* Card Component Test */}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-        <Box sx={{ flex: '1 1 300px', minWidth: 300 }}>
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Typography variant="h6" color="primary" gutterBottom>
-                Test Card 1
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                This card tests the theme integration with Material-UI
-                components.
-              </Typography>
-              <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-                Primary Action
-              </Button>
-            </CardContent>
-          </Card>
-        </Box>
-
-        <Box sx={{ flex: '1 1 300px', minWidth: 300 }}>
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Typography variant="h6" color="secondary" gutterBottom>
-                Test Card 2
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                This card uses secondary colors to test the palette.
-              </Typography>
-              <Button variant="contained" color="secondary" sx={{ mt: 2 }}>
-                Secondary Action
-              </Button>
-            </CardContent>
-          </Card>
-        </Box>
-
-        <Box sx={{ flex: '1 1 300px', minWidth: 300 }}>
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Test Card 3
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                This card tests default styling and Inter font rendering.
-              </Typography>
-              <Button variant="outlined" sx={{ mt: 2 }}>
-                Default Action
-              </Button>
-            </CardContent>
-          </Card>
-        </Box>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
-    </Container>
+
+      {/* Services Section */}
+      <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" align="center" sx={{ fontWeight: 700, mb: 2 }}>
+            Our Services
+          </Typography>
+          <Typography align="center" sx={{ color: 'text.secondary', mb: 5 }}>
+          We help you structure, organize, and execute strategic business solutions that expand your reach, amplify your impact, and turn vision into measurable growth.
+          </Typography>
+          <Grid container spacing={4} justifyContent="center">
+          <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>⚙️</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Business Structure & Systems Design
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Build a strong operational foundation with customized systems that support scalability and efficiency.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid><Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>🎯</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Strategic Planning & Execution
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Develop actionable business plans that align with your goals and drive intentional growth.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid><Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>🚀</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                     Growth & Scaling Support 
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Identify growth opportunities and implement strategies that expand your reach and impact.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>🛡️</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Stop Foreclosure
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    We help homeowners avoid foreclosure with fast, reliable solutions tailored to your situation.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>💳</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Take Over Payments
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Transfer your mortgage responsibilities to us with a seamless transition process.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>💲</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Save Credit
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Protect your credit score with our professional debt management solutions.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>⚡</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Instant Debt Relief
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Get immediate relief from overwhelming debt with our proven strategies.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>⏱️</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Fast Closing
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Complete your property sale quickly with our streamlined closing process.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card elevation={2}>
+                <CardContent>
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box sx={{ fontSize: 32 }}>💵</Box>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                      Instant Cash
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: 'text.secondary', mt: 1 }}>
+                    Receive immediate cash for your property with no hidden fees or delays.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Mission Statement & Owner Background */}
+      <Box sx={{ bgcolor: 'background.default', py: 8 }}>
+        <Container maxWidth="md">
+          <Typography variant="h4" align="center" sx={{ fontWeight: 700, mb: 2 }}>
+            Our Mission Statement
+          </Typography>
+          <Typography align="center" sx={{ color: 'text.secondary', mb: 5 }}>
+            To provide honest, fairness, professional service and quality housing for potential homeowners.
+          </Typography>
+          <Paper elevation={1} sx={{ p: { xs: 3, md: 5 }, mb: 4 }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+              Background of the Owner
+            </Typography>
+            <Typography sx={{ color: 'text.secondary' }}>
+              Michael Littlejohn was born and raised in Fort Worth TX. He Graduated from Paul Laurence Dunbar High School. He attended Trinity Valley Community College (formerly, Henderson County Junior College). He also, earned a Bachelor of Science degree from Texas A&M Commerce (formerly, East Texas State University) He became an educator in the Fort Worth Independent School District and was a member of "Outstanding Young Men of America" He has been married for over 30 years with a loving family. He brings over 35 years of experience in Real Estate. He has a passion to help others where he counsels and advises other investors. He owns and manages several properties. He has bought and sold many properties in his career and continues to do so today.
+            </Typography>
+          </Paper>
+        </Container>
+      </Box>
+    </Box>
   );
 }
