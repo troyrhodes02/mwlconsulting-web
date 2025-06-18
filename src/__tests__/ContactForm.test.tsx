@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import emailjs from '@emailjs/browser';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/contact/ContactForm';
 
 // Mock emailjs
 jest.mock('@emailjs/browser', () => ({

@@ -1,8 +1,8 @@
 'use client';
 
 import { Box, Container } from '@mui/material';
-import ContactHeader from '@/components/ContactHeader';
-import GetInTouch from '@/components/GetInTouch';
+import ContactHeader from '@/components/contact/ContactHeader';
+import GetInTouch from '@/components/contact/GetInTouch';
 
 export default function Contact() {
   return (

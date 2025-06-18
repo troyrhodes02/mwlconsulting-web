@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { theme } from '@/theme';
-import Footer from './Footer';
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
 interface MainLayoutProps {
