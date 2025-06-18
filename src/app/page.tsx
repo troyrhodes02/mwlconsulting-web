@@ -1,5 +1,7 @@
 'use client';
 import HeroSection from '@/components/landing/HeroSection';
+import MissionOwnerNarrative from '@/components/landing/MissionAndOwner';
+import ServiceCards from '@/components/landing/ServiceCards';
 
 import {
   Typography,
@@ -17,6 +19,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ServiceCards />
+      <MissionOwnerNarrative />
       <Container maxWidth="lg" sx={{ py: 4 }}>
         {/* Typography Test Section */}
         <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
