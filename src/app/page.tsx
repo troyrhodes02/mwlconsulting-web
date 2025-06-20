@@ -1,4 +1,5 @@
 'use client';
+import HeroSection from '@/components/landing/HeroSection';
 
 import {
   Typography,
@@ -11,7 +12,6 @@ import {
   CardContent,
   Stack,
 } from '@mui/material';
-import HeroSection from '../components/landing/HeroSection';
 
 export default function Home() {
   return (

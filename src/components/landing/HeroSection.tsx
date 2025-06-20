@@ -63,14 +63,14 @@ const HeroSection: React.FC = () => {
               variant="h1"
               sx={{
                 fontSize: {
-                  xs: '3rem',
-                  sm: '4rem',
-                  md: '5rem',
-                  lg: '6rem',
+                  xs: '3.5rem',
+                  sm: '4.5rem',
+                  md: '5.5rem',
+                  lg: '6.5rem',
                 },
                 fontWeight: 800,
                 lineHeight: 1.1,
-                mb: 4,
+                mb: { xs: 6, md: 8 },
                 '& .highlight': {
                   color: '#FFCA28',
                   background: 'linear-gradient(135deg, #FFCA28 0%, #FFB300 100%)',
@@ -79,17 +79,17 @@ const HeroSection: React.FC = () => {
                 },
               }}
             >
-              Helping Small Businesses 
-             <br />
+              Helping Small Businesses
+              <br />
               <span className="highlight">Win Big</span>
             </Typography>
 
             <Typography
               sx={{
-                fontSize: { xs: '1.25rem', md: '1.5rem' },
+                fontSize: { xs: '1.35rem', md: '1.65rem' },
                 color: 'rgba(255, 255, 255, 0.8)',
                 maxWidth: '800px',
-                mb: 8,
+                mb: { xs: 10, md: 12 },
                 lineHeight: 1.6,
               }}
             >
@@ -98,7 +98,7 @@ const HeroSection: React.FC = () => {
 
             <Stack
               direction={{ xs: 'column', sm: 'row' }}
-              spacing={3}
+              spacing={4}
               alignItems={{ xs: 'stretch', sm: 'center' }}
             >
               <Button
@@ -199,10 +199,9 @@ const HeroSection: React.FC = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: '2.5rem',
-                    fontWeight: 700,
-                    color: '#1976d2',
-                    mb: 1,
+                    fontSize: '1.25rem',
+                    fontWeight: 600,
+                    color: '#1a237e',
                   }}
                 >
                   Growth Analytics
@@ -229,8 +228,8 @@ const HeroSection: React.FC = () => {
                   />
                   <Typography
                     sx={{
-                      fontSize: '1rem',
-                      color: 'rgba(0, 0, 0, 0.7)',
+                      fontSize: '0.875rem',
+                      color: 'rgba(0, 0, 0, 0.6)',
                     }}
                   >
                     Live Data
