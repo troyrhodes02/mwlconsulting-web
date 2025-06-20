@@ -124,6 +124,8 @@ const HeroSection: React.FC = () => {
               </Button>
 
               <Box
+                component="a"
+                href="tel:+16822500536"
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -132,6 +134,12 @@ const HeroSection: React.FC = () => {
                   borderRadius: 2,
                   bgcolor: 'rgba(255, 255, 255, 0.05)',
                   backdropFilter: 'blur(10px)',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.1)',
+                  },
                 }}
               >
                 <Box
@@ -143,6 +151,7 @@ const HeroSection: React.FC = () => {
                     height: 40,
                     borderRadius: '50%',
                     bgcolor: 'rgba(255, 255, 255, 0.1)',
+                    transition: 'all 0.2s',
                   }}
                 >
                   <PhoneIcon sx={{ fontSize: 20, color: '#90CAF9' }} />
