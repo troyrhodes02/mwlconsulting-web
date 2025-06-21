@@ -25,9 +25,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         <ThemeRegistry>
-          <MainLayout>
-            {children}
-          </MainLayout>
+          <MainLayout>{children}</MainLayout>
         </ThemeRegistry>
       </body>
     </html>
