@@ -1,5 +1,8 @@
 'use client';
+import { useState, useEffect } from 'react';
 import HeroSection from '@/components/landing/HeroSection';
+import LoadingIndicator from '@/components/LoadingIndicator';
+import useImagePreloader from '@/hooks/useImagePreloader';
 
 import {
   Typography,
@@ -13,7 +16,28 @@ import {
   Stack,
 } from '@mui/material';
 
+// Add the images that need to be preloaded
+const imagesToPreload = ['/analytics.png'];
+
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const imagesLoaded = useImagePreloader(imagesToPreload);
+
+  useEffect(() => {
+    if (imagesLoaded) {
+      // Only start the content loading animation after images are loaded
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 500); // Reduced timeout since we're already waiting for images
+
+      return () => clearTimeout(timer);
+    }
+  }, [imagesLoaded]);
+
+  if (isLoading || !imagesLoaded) {
+    return <LoadingIndicator />;
+  }
+
   return (
     <>
       <HeroSection />
