@@ -15,10 +15,10 @@ export const alphaPrimary =
 const baseTheme = createTheme({
   palette: {
     primary: {
-      main: '#0039CB', // Updated to match spec
+      main: '#0039CB',
     },
     secondary: {
-      main: '#FFCA28', // Updated to match spec
+      main: '#FFCA28',
     },
   },
   typography: {

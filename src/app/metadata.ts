@@ -10,16 +10,14 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16' },
       { url: '/favicon-32x32.png', sizes: '32x32' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
     other: [
       {
         rel: 'mask-icon',
         url: '/safari-pinned-tab.svg',
-        color: '#0039CB'
-      }
-    ]
+        color: '#0039CB',
+      },
+    ],
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -31,9 +29,9 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'MWL Consulting'
-      }
-    ]
+        alt: 'MWL Consulting',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
