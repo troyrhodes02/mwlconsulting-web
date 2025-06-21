@@ -12,12 +12,12 @@ const HeroSection: React.FC = () => {
     <Box
       component="section"
       sx={{
-        minHeight: '5vh',
+        minHeight: 'calc(100vh - 64px)', // Subtract navbar height
         position: 'relative',
         background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
         color: '#fff',
-        pt: { xs: 1.5, md: 2.5 },
-        pb: { xs: 2.5, md: 3.5 },
+        display: 'flex',
+        alignItems: 'center',
         overflow: 'hidden',
       }}
     >
@@ -27,6 +27,7 @@ const HeroSection: React.FC = () => {
           spacing={{ xs: 6, md: 8 }}
           alignItems="center"
           justifyContent="space-between"
+          sx={{ py: { xs: 4, md: 6 } }}
         >
           {/* Left Content */}
           <Box sx={{ maxWidth: 'lg', width: '100%' }}>
@@ -187,7 +188,7 @@ const HeroSection: React.FC = () => {
             sx={{
               position: 'relative',
               width: '100%',
-              maxWidth: { xs: '100%', lg: '50%' },
+              maxWidth: { xs: '100%', lg: '45%' },
               display: { xs: 'none', lg: 'block' },
             }}
           >
@@ -195,13 +196,13 @@ const HeroSection: React.FC = () => {
               sx={{
                 position: 'relative',
                 width: '100%',
-                height: { lg: '500px' },
+                height: { lg: '450px' },
                 borderRadius: 4,
                 overflow: 'hidden',
-                transform: { lg: 'scale(1.1)' },
+                transform: { lg: 'scale(1.05)' },
                 transition: 'transform 0.3s ease-in-out',
                 '&:hover': {
-                  transform: { lg: 'scale(1.12)' },
+                  transform: { lg: 'scale(1.07)' },
                 },
               }}
             >
