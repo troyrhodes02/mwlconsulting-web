@@ -77,7 +77,7 @@ const OwnerNarrativeSection: React.FC = () => {
                 },
               }}
             >
-              Michael Littlejohn was born and raised in Fort Worth TX. He Graduated from Paul Laurence Dunbar High School. He attended Trinity Valley Community College (formerly, Henderson County Junior College). He also, earned a Bachelor of Science degree from Texas A&M Commerce (formerly, East Texas State University) He became an educator in the Fort Worth Independent School District and was a member of "Outstanding Young Men of America" He has been married for over 30 years with a loving family. He brings over 35 years of experience in business consulting and strategy. He has a passion to help others where he counsels and advises other business owners. He has helped numerous small businesses structure their operations and develop successful growth strategies.
+              Michael Littlejohn was born and raised in Fort Worth TX. He Graduated from Paul Laurence Dunbar High School. He attended Trinity Valley Community College (formerly, Henderson County Junior College). He also, earned a Bachelor of Science degree from Texas A&M Commerce (formerly, East Texas State University) He became an educator in the Fort Worth Independent School District and was a member of &ldquo;Outstanding Young Men of America&rdquo; He has been married for over 30 years with a loving family. He brings over 35 years of experience in business consulting and strategy. He has a passion to help others where he counsels and advises other business owners. He has helped numerous small businesses structure their operations and develop successful growth strategies.
             </Typography>
           </Paper>
         </Box>
