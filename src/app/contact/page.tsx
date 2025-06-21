@@ -7,6 +7,7 @@ import GetInTouch from '@/components/contact/GetInTouch';
 export default function Contact() {
   return (
     <Box
+      id="contact-section"
       sx={{
         bgcolor: '#f9fafb',
         overflowX: 'hidden',
