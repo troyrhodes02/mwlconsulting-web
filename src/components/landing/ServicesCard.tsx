@@ -131,7 +131,7 @@ const ServicesSection: React.FC = () => {
         py: { xs: 6, md: 10 },
         position: 'relative',
         overflow: 'hidden',
-        backgroundColor: 'background.default',
+        backgroundColor: 'background.paper',
         '&::before': {
           content: '""',
           position: 'absolute',

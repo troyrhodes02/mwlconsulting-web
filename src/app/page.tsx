@@ -1,6 +1,7 @@
 'use client';
 import HeroSection from '@/components/landing/HeroSection';
-import OwnerNarrativeSection from '@/components/landing/OwnerNarrativeSection';
+import Mission from '@/components/landing/Mission';
+import OwnerBackground from '@/components/landing/OwnerBackground';
 import ServicesSection from '@/components/landing/ServicesCard';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import useImagePreloader from '@/hooks/useImagePreloader';
@@ -19,7 +20,8 @@ export default function Home() {
     <>
       <HeroSection />
       <ServicesSection />
-      <OwnerNarrativeSection />
+      <Mission />
+      <OwnerBackground />
     </>
   );
 }
