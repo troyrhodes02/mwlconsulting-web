@@ -206,7 +206,7 @@ const HeroSection: React.FC = () => {
               }}
             >
               <Image
-                src="/analytics.jpg"
+                src="/analytics.png"
                 alt="Growth Analytics Dashboard"
                 fill
                 style={{
