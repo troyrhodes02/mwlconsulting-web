@@ -1,6 +1,6 @@
 'use client';
-
 import HeroSection from '@/components/landing/HeroSection';
+import ServicesSection from '@/components/landing/ServicesCard';
 import LoadingIndicator from '@/components/LoadingIndicator';
 import useImagePreloader from '@/hooks/useImagePreloader';
 
@@ -17,6 +17,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ServicesSection />
     </>
   );
 }

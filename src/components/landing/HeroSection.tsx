@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
           spacing={{ xs: 6, md: 8 }}
           alignItems="center"
           justifyContent="space-between"
-          sx={{ py: { xs: 4, md: 6 } }}
+          sx={{ py: { xs: 3, md: 4 } }}
         >
           {/* Left Content */}
           <Box sx={{ maxWidth: 'lg', width: '100%' }}>
