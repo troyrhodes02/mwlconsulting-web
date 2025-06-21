@@ -5,27 +5,24 @@ import { Box, Container } from '@mui/material';
 import ContactHeader from '@/components/contact/ContactHeader';
 import GetInTouch from '@/components/contact/GetInTouch';
 import LoadingIndicator from '@/components/LoadingIndicator';
-import useImagePreloader from '@/hooks/useImagePreloader';
-
-// Add any images that need to be preloaded for the contact page
-const imagesToPreload: string[] = [];
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
-  const [isLoading, setIsLoading] = useState(true);
-  const imagesLoaded = useImagePreloader(imagesToPreload);
+  const [isEmailJSInitialized, setIsEmailJSInitialized] = useState(false);
 
   useEffect(() => {
-    if (imagesLoaded) {
-      // Only start the content loading animation after images are loaded
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
-
-      return () => clearTimeout(timer);
+    try {
+      // Initialize EmailJS
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+      setIsEmailJSInitialized(true);
+    } catch (error) {
+      console.error('EmailJS initialization error:', error);
+      // Still set as initialized to not block the page on error
+      setIsEmailJSInitialized(true);
     }
-  }, [imagesLoaded]);
+  }, []);
 
-  if (isLoading || !imagesLoaded) {
+  if (!isEmailJSInitialized) {
     return <LoadingIndicator />;
   }
 
