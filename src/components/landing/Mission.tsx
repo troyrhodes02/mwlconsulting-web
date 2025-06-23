@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Container, Typography, Paper, useTheme, Stack } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  Paper,
+  useTheme,
+  Stack,
+} from '@mui/material';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import StarIcon from '@mui/icons-material/Star';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -109,12 +116,19 @@ const Mission: React.FC = () => {
                 mb: 3,
               }}
             >
-              To provide exceptional business consulting services through honest, professional partnerships that empower small businesses to thrive. We are committed to delivering innovative solutions, fostering sustainable growth, and maintaining the highest standards of integrity in every interaction. Our mission is to be a trusted catalyst for business transformation, helping our clients achieve their full potential through strategic guidance and practical implementation.
+              To provide exceptional business consulting services through
+              honest, professional partnerships that empower small businesses to
+              thrive. We are committed to delivering innovative solutions,
+              fostering sustainable growth, and maintaining the highest
+              standards of integrity in every interaction. Our mission is to be
+              a trusted catalyst for business transformation, helping our
+              clients achieve their full potential through strategic guidance
+              and practical implementation.
             </Typography>
 
-            <Stack 
-              direction="row" 
-              spacing={4} 
+            <Stack
+              direction="row"
+              spacing={4}
               justifyContent="center"
               sx={{ mt: 2 }}
             >
@@ -169,4 +183,4 @@ const Mission: React.FC = () => {
   );
 };
 
-export default Mission; 
+export default Mission;
